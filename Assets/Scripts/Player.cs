@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField] float gravity;
     [SerializeField] float mouseMutiplier;
 
+    [SerializeField] GameObject interrupteur;
+    [SerializeField] GameObject ActivateUI; 
+
     CharacterController cc;
     Camera cam;
 
@@ -23,6 +27,7 @@ public class Player : MonoBehaviour
     InputAction jump;
     InputAction sprint;
     InputAction camMovement;
+    InputAction activate;
 
     void Awake()
     {
@@ -38,6 +43,9 @@ public class Player : MonoBehaviour
         sprint.Enable();
         camMovement = playerMovement.Player.Look;
         camMovement.Enable();
+        activate = playerMovement.Player.Activate;
+        activate.performed += Activated;
+        activate.Enable();
     }
     void OnDisable()
     {
@@ -45,6 +53,7 @@ public class Player : MonoBehaviour
         jump.Disable();
         sprint.Disable();
         camMovement.Disable();
+        activate.Disable();
     }
     void Start()
     {
@@ -55,6 +64,24 @@ public class Player : MonoBehaviour
     {
         Movement();
         CameraRotation();
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 4f))
+        {
+            if (hit.collider.gameObject == interrupteur)
+            {
+                ActivateUI.SetActive(true);
+            }
+            else
+            {
+                ActivateUI.SetActive(false);
+            }
+        }
+        else
+        {
+            ActivateUI.SetActive(false);
+        }
     }
     void Movement()
     {
@@ -92,5 +119,14 @@ public class Player : MonoBehaviour
 
         cameraRotation.x = Mathf.Clamp(cameraRotation.x, -70, 70);
         cam.transform.rotation = Quaternion.Euler(cameraRotation);
+    }
+    void Activated(InputAction.CallbackContext context)
+    {
+        // j'aurais pu faire quelque chose de plus complexe qu'un simple print
+        // mais faute de temps je n'ai pas réussi à trouver une autre idée original
+        if (ActivateUI.activeSelf)
+        {
+            print("trigger");
+        }
     }
 }
