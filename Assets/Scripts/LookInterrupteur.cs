@@ -12,6 +12,7 @@ public class LookInterrupteur : MonoBehaviour
     [SerializeField] GameObject arch;
     [SerializeField] GameObject stickInterrupteur;
 
+    bool isOn = false;
     private void Awake()
     {
         textPressUI.text = "";
@@ -22,9 +23,19 @@ public class LookInterrupteur : MonoBehaviour
         {
             textPressUI.text = "Press E to activate";
             if (Input.GetKeyDown(KeyCode.E))
-            {
+            {                    
                 Debug.Log("Clique interrupteur");
-                stickInterrupteur.transform.rotation = new Quaternion(35, 0, 0, 0);
+                if (isOn)
+                {
+                    isOn = false;
+                    stickInterrupteur.transform.Rotate(-70, 0, 0);
+                }
+                else
+                {
+                    isOn = true;
+                    stickInterrupteur.transform.Rotate(70, 0, 0);
+                }
+                
 
             }
         }
