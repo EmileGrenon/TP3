@@ -229,7 +229,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &502544323
+--- !u!1001 &99485664
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -239,7 +239,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5246144766339528732, guid: bf013ca587f62064c859b7d19e37d550, type: 3}
       propertyPath: m_Name
-      value: akai_e_espiritu
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7178108804733404664, guid: bf013ca587f62064c859b7d19e37d550, type: 3}
       propertyPath: m_LocalPosition.x
@@ -386,4 +386,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 2092830029}
   - {fileID: 40801061}
-  - {fileID: 502544323}
+  - {fileID: 99485664}
