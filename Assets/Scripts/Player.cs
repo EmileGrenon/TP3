@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float gravity;
     [SerializeField] float mouseMutiplier;
+    [SerializeField] GameObject playerSkin;
 
     CharacterController cc;
     Camera cam;
@@ -90,7 +91,9 @@ public class Player : MonoBehaviour
         Vector2 action = camMovement.ReadValue<Vector2>();
         cameraRotation += new Vector3(-action.y * mouseMutiplier * Time.deltaTime, action.x * mouseMutiplier * Time.deltaTime, 0);
 
-        cameraRotation.x = Mathf.Clamp(cameraRotation.x, -70, 70);
+        
+        cameraRotation.x = Mathf.Clamp(cameraRotation.x, -60, 60);
+        playerSkin.transform.rotation = Quaternion.Euler(new Vector3(0, cameraRotation.y, 0));
         cam.transform.rotation = Quaternion.Euler(cameraRotation);
     }
 }
