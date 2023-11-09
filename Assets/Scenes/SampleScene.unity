@@ -7455,7 +7455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1019920405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7532,7 +7532,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 266820687}
-  m_Father: {fileID: 1955978838}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -44846,7 +44846,6 @@ MonoBehaviour:
   jumpForce: 5
   gravity: 15
   mouseMutiplier: 5
-  ActivateUI: {fileID: 266820686}
 --- !u!114 &1833056344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45003,7 +45002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1955978838
 Transform:
   m_ObjectHideFlags: 0
@@ -45016,8 +45015,7 @@ Transform:
   m_LocalPosition: {x: -46.010483, y: -1.8270159, z: -5.309516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1019920408}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &2033601643
@@ -46144,4 +46142,5 @@ SceneRoots:
   - {fileID: 1823614081}
   - {fileID: 1911987945}
   - {fileID: 897504717}
+  - {fileID: 1019920408}
   - {fileID: 1955978838}

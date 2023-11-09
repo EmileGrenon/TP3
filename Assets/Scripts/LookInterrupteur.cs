@@ -15,7 +15,7 @@ public class LookInterrupteur : MonoBehaviour
             interactCanvas.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-
+                Debug.Log("Okay");
             }
         }
         else
