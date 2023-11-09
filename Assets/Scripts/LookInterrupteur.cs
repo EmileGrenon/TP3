@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class LookInterrupteur : MonoBehaviour
 {
-    [SerializeField] Camera cam;
-    [SerializeField] GameObject interrupteur;
-    [SerializeField] GameObject ActivateUI;
-    void Start()
-    {
-        
-    }
+    [SerializeField] LayerMask interruptorMask;
+    [SerializeField] float lookDistance = 2.5f;
+    [SerializeField] GameObject interactCanvas;
 
-    // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 4f))
+        if (CheckIfLookInterruptor())
         {
-            if (hit.collider.gameObject == interrupteur)
+            interactCanvas.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                ActivateUI.SetActive(true);
-            }
-            else
-            {
-                ActivateUI.SetActive(false);
+
             }
         }
         else
         {
-            ActivateUI.SetActive(false);
+            interactCanvas.SetActive(false);
         }
+    }
+
+    bool CheckIfLookInterruptor()
+    {
+        RaycastHit hit;
+        return Physics.Raycast(transform.position, transform.forward, out hit, lookDistance, interruptorMask);
     }
 }

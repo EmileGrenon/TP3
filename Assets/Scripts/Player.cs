@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField] float gravity;
     [SerializeField] float mouseMutiplier;
 
-    [SerializeField] GameObject ActivateUI; 
-
     CharacterController cc;
     Camera cam;
 
