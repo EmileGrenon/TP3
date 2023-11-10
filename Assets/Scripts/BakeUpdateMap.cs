@@ -7,15 +7,11 @@ public class BakeUpdateMap : MonoBehaviour
 {
     // Source: https://youtu.be/mV-Uh_FEBn4?si=qv3CJIwviARI8mm8
 
-    public NavMeshSurface[] surfaces;
-    public Transform[] objectsToRotate;
+    public NavMeshSurface surface;
 
-    void Update()
+    public void BuildNavMeshUpdate()
     {
-        for (int i = 0; i < surfaces.Length; i++)
-        {
-            surfaces[i].BuildNavMesh();
-        }
+        surface.BuildNavMesh();
     }
 
 }

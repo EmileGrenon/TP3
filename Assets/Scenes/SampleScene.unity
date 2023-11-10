@@ -449,6 +449,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2980106416759651793, guid: bf013ca587f62064c859b7d19e37d550, type: 3}
+      propertyPath: bakeUpdateMap
+      value: 
+      objectReference: {fileID: 280316475}
+    - target: {fileID: 2980106416759651793, guid: bf013ca587f62064c859b7d19e37d550, type: 3}
       propertyPath: stickInterrupteur
       value: 
       objectReference: {fileID: 1563794312}
@@ -3228,10 +3232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f000823e435453f469483e17f6ae304f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaces:
-  - {fileID: 280316473}
-  objectsToRotate:
-  - {fileID: 852305049}
+  surface: {fileID: 280316473}
 --- !u!43 &285571890
 Mesh:
   m_ObjectHideFlags: 0
