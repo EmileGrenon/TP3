@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] float gravity;
     [SerializeField] float mouseMutiplier;
 
+    Animator animator;
     CharacterController cc;
     Camera cam;
 
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -62,19 +64,32 @@ public class Player : MonoBehaviour
         Vector3 direction = cam.transform.forward * action.y + cam.transform.right * action.x;
         if (direction.magnitude > 0)
         {
+            animator.SetBool("Walk", true);
+
             direction = new Vector3(direction.x, 0, direction.z).normalized;
 
             if (sprint.ReadValue<float>() > 0.1f)
             {
                 direction *= sprintMultiplier;
-
+                animator.SetBool("Sprint", true);
+            }
+            else
+            {
+                animator.SetBool("Sprint", false);
             }
         }
+        else
+        {
+            animator.SetBool("Sprint", false);
+            animator.SetBool("Walk", false);
+        }
+        // isGrounded ne marche pas quand le joueur est dans son animation de idle
         if (cc.isGrounded)
         {
             if (jump.ReadValue<float>() > 0.1f)
             {
                 jumpMovement = Vector3.up * jumpForce;
+                animator.SetTrigger("Jump");
             }
             jumpMovement.y = Mathf.Max(-0.5f, jumpMovement.y);
         }

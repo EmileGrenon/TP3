@@ -18,7 +18,6 @@ public class NavMeshLinkUsing : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(agent.isOnOffMeshLink);
         if (agent.isOnOffMeshLink)
         {
             if (!isRunning)
